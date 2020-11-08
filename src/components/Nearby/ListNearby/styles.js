@@ -21,6 +21,10 @@ const CityHeader = styled.div`
 
 const CityName = styled.h3`
     font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px;
 `
 
 const Temp = styled.h4`
