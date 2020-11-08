@@ -31,11 +31,11 @@ const InputSearch = styled.input`
     box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
     outline: 0;
     padding: 10px;
-    opacity: 1;
+    opacity: 0;
     transition: opacity 0.2s ease-in-out;
 
     ${({ show }) => show && css`
-        opacity: 0;
+        opacity: 1;
     `}
 `
 
