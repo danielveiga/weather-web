@@ -23,7 +23,11 @@ const Maps = () => {
     };
 
     useEffect(() => {
-        setCenter(currentCoordinates)
+        if (currentCoordinates) {
+            setCenter(currentCoordinates)
+            setCoord(currentCoordinates)
+            handleSetPin(currentCoordinates)
+        }
     }, [currentCoordinates])
 
     const handleOnClickMap = ({ latLng: { lat, lng } }) => {
