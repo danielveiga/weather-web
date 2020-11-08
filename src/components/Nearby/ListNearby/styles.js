@@ -108,6 +108,15 @@ const TempContainer = styled.div`
     }
 `
 
+const EmptyState = styled.div`
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 500;
+    text-align: center;
+`
+
 export {
     ListNearbyContainer,
     CloseButton,
@@ -119,5 +128,6 @@ export {
     CityBody,
     TempContainer,
     Temp,
-    LoadingContainer
+    LoadingContainer,
+    EmptyState
 }

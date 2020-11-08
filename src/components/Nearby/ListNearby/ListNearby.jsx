@@ -14,6 +14,7 @@ import ShowerRainIcon from '../../../assets/icons/shower-rain.svg'
 import ThunderstormIcon from '../../../assets/icons/thunderstorm.svg'
 import SnowIcon from '../../../assets/icons/snow.svg'
 import MistIcon from '../../../assets/icons/mist.svg'
+import SearchLocation from '../../../assets/icons/search-location.svg'
 import { ListNearbyLoader } from './ListNearbyLoader'
 
 const ListNearby = ({ handleOnClose }) => {
@@ -55,6 +56,23 @@ const ListNearby = ({ handleOnClose }) => {
         }
     }
 
+    if (!isLoading && (!cities || !cities.length)) {
+        return (
+            <Styled.ListNearbyContainer>
+                <Styled.CloseButton onClick={handleOnClose}>
+                    <img alt='close nearby list' src={CloseIcon} width="20px" />
+                </Styled.CloseButton>
+                <Styled.Title>
+                    Nearby Cities
+                </Styled.Title>
+                <Styled.EmptyState>
+                    <img src={SearchLocation} width="60px" />
+                    Ops, there is no cities nearby<br />this location
+                </Styled.EmptyState>
+            </Styled.ListNearbyContainer>
+        )
+    }
+
     return (
         <Styled.ListNearbyContainer>
             <Styled.CloseButton onClick={handleOnClose}>
@@ -64,7 +82,7 @@ const ListNearby = ({ handleOnClose }) => {
                 Nearby Cities
             </Styled.Title>
             {
-                (isLoading || !cities.length) ?
+                isLoading ?
                     <Styled.LoadingContainer><ListNearbyLoader /></Styled.LoadingContainer> :
                     <Styled.ListNearby>
                         {
