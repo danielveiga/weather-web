@@ -1,11 +1,11 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const ButtonSearch = styled.div`
     position: absolute;
-    bottom: 90px;
-    left: 10px;
-    height: 60px;
-    width: 60px;
+    top: 70px;
+    right: 10px;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
     border: 0;
     border-bottom-right-radius: 2px;
@@ -22,8 +22,20 @@ const ButtonSearch = styled.div`
 
 const InputSearch = styled.input`
     position: absolute;
-    bottom: 90px;
-    left: 80px;
+    top: 73px;
+    right: 70px;
+    width: 200px;
+    height: 20px;
+    border-radius: 20px;
+    border: 0;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+    outline: 0;
+    padding: 10px;
+    visibility: hidden;
+
+    ${({ show }) => show && css`
+        visibility: visible;
+    `}
 `
 
 export {
