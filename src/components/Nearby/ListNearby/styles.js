@@ -91,6 +91,11 @@ const ListNearbyItem = styled.div`
     `}
 `
 
+const LoadingContainer = styled.div`
+    margin: 20px;
+    margin-top: 100px;
+`
+
 const TempContainer = styled.div`
     display: flex;
 
@@ -109,5 +114,6 @@ export {
     CityName,
     CityBody,
     TempContainer,
-    Temp
+    Temp,
+    LoadingContainer
 }

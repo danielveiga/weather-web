@@ -14,6 +14,7 @@ import ShowerRainIcon from '../../../assets/icons/shower-rain.svg'
 import ThunderstormIcon from '../../../assets/icons/thunderstorm.svg'
 import SnowIcon from '../../../assets/icons/snow.svg'
 import MistIcon from '../../../assets/icons/mist.svg'
+import { ListNearbyLoader } from './ListNearbyLoader'
 
 const ListNearby = ({ handleOnClose }) => {
     const { cities } = useContext(CitiesContext)
@@ -63,8 +64,8 @@ const ListNearby = ({ handleOnClose }) => {
                 Nearby Cities
             </Styled.Title>
             {
-                isLoading ?
-                    <div>loading</div> :
+                (isLoading || !cities.length) ?
+                    <Styled.LoadingContainer><ListNearbyLoader /></Styled.LoadingContainer> :
                     <Styled.ListNearby>
                         {
                             cities.map((city, index) =>
