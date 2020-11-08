@@ -11,6 +11,7 @@ const ButtonNearby = ({ handleOnClick }) => {
     return (
         <Styled.Button disabled={!selectedPin} onClick={handleOnClick}>
             <img alt="list nearby" src={NearByIcon} width="30px" />
+            Search
         </Styled.Button>
     )
 }
