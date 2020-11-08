@@ -1,11 +1,13 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { GoogleMap, LoadScript, Marker, StandaloneSearchBox } from '@react-google-maps/api';
 
 import { CitiesContext } from '../../contexts';
 import { Search } from './Search/Search';
+import { useFetchGeolocation } from '../../hooks';
 
 const Maps = () => {
     const { handleSetPin } = useContext(CitiesContext)
+    const { coordinates: currentCoordinates } = useFetchGeolocation()
 
     const [searchBoxRef, setSearchBoxRef] = useState();
     const [center, setCenter] = useState({
@@ -19,6 +21,10 @@ const Maps = () => {
         width: '100vw',
         height: '100vh'
     };
+
+    useEffect(() => {
+        setCenter(currentCoordinates)
+    }, [currentCoordinates])
 
     const handleOnClickMap = ({ latLng: { lat, lng } }) => {
         const coordinates = {
