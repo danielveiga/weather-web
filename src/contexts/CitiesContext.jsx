@@ -4,7 +4,8 @@ const InitialState = {
     selectedPin: null,
     cities: [],
     isLoading: false,
-    handleSetPin: () => { }
+    handleSetPin: () => { },
+    handleSetCities: () => { }
 }
 
 const Context = createContext(InitialState)
@@ -17,7 +18,11 @@ const CitiesProvider = ({ children }) => {
         setState({ ...state, selectedPin: pin })
     }
 
-    return <Provider value={{ ...state, handleSetPin }}>{children}</Provider>
+    const handleSetCities = (cities) => {
+        setState({ ...state, cities: cities})
+    }
+
+    return <Provider value={{ ...state, handleSetPin, handleSetCities }}>{children}</Provider>
 }
 
 export { Context as CitiesContext, CitiesProvider, CitiesConsumer }

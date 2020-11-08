@@ -1,21 +1,19 @@
 import React, { useContext, useState } from 'react'
 import { GoogleMap, LoadScript, Marker, StandaloneSearchBox } from '@react-google-maps/api';
 
-import * as Styled from './styles';
 import { CitiesContext } from '../../contexts';
 import { Search } from './Search/Search';
 
 const Maps = () => {
     const { handleSetPin } = useContext(CitiesContext)
 
-    let searchBoxRef = null;
+    const [searchBoxRef, setSearchBoxRef] = useState();
     const [center, setCenter] = useState({
         lat: -3.745,
         lng: -38.523
     })
 
     const [coord, setCoord] = useState({})
-    const [searchOpened, setSearchOpened] = useState(false)
 
     const containerStyle = {
         width: '100vw',
@@ -36,10 +34,6 @@ const Maps = () => {
         setCenter({ lat: lat(), lng: lng() })
     }
 
-    const handleToggleOpened = () => {
-        setSearchOpened(!searchOpened)
-    }
-
     return (
         <LoadScript
             googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
@@ -54,7 +48,7 @@ const Maps = () => {
             >
                 <StandaloneSearchBox
                     onLoad={
-                        ref => searchBoxRef = ref
+                        ref => setSearchBoxRef(ref)
                     }
                     onPlacesChanged={handlePlacesChange}
                 >
