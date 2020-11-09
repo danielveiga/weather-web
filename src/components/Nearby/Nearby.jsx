@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 
 import * as Styled from './styles'
-import { useFetchCities } from '../../hooks'
-import { ButtonNearby } from '../../components'
+import { ButtonNearby } from './ButtonNearby'
 import { ListNearby } from './ListNearby'
 
 const Nearby = () => {

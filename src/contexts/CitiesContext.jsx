@@ -3,7 +3,6 @@ import React, { createContext, useState } from 'react'
 const InitialState = {
     selectedPin: null,
     cities: [],
-    isLoading: false,
     handleSetPin: () => { },
     handleSetCities: () => { }
 }

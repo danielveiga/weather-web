@@ -41,6 +41,7 @@ const Maps = () => {
     const handlePlacesChange = () => {
         const { lat, lng } = searchBoxRef.getPlaces()[0].geometry.location;
         setCenter({ lat: lat(), lng: lng() })
+        handleSetPin({ lat: lat(), lng: lng() })
     }
 
     return (
