@@ -3,11 +3,6 @@
   <a href="https://weather-web-three.vercel.app/">https://weather-web-three.vercel.app/</a>
 </p>
 
-<br />
-<br />
-<br />
-
-<!-- omit in toc -->
 # Table of Contents
 - [Introduction](#introduction)
   - [Used Technologies](#used-technologies)
