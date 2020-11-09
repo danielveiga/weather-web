@@ -3,11 +3,11 @@ import { GoogleMap, LoadScript, Marker, StandaloneSearchBox } from '@react-googl
 
 import { CitiesContext } from '../../contexts';
 import { Search } from './Search/Search';
-import { useFetchGeolocation } from '../../hooks';
+
+const libraries = ['places']
 
 const Maps = () => {
-    const { handleSetPin } = useContext(CitiesContext)
-    const { coordinates: currentCoordinates } = useFetchGeolocation()
+    const { selectedPin, handleSetPin } = useContext(CitiesContext)
 
     const [searchBoxRef, setSearchBoxRef] = useState();
     const [center, setCenter] = useState({
@@ -23,12 +23,11 @@ const Maps = () => {
     };
 
     useEffect(() => {
-        if (currentCoordinates) {
-            setCenter(currentCoordinates)
-            setCoord(currentCoordinates)
-            handleSetPin(currentCoordinates)
+        if (selectedPin) {
+            setCenter(selectedPin)
+            setCoord(selectedPin)
         }
-    }, [currentCoordinates])
+    }, [selectedPin])
 
     const handleOnClickMap = ({ latLng: { lat, lng } }) => {
         const coordinates = {
@@ -47,7 +46,7 @@ const Maps = () => {
     return (
         <LoadScript
             googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
-            libraries={['places']}
+            libraries={libraries}
         >
             <GoogleMap
                 mapContainerStyle={containerStyle}

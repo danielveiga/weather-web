@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react'
 
 const useFetchGeolocation = () => {
-    const [coordinates, setCoordinates] = useState()
+    const [currentCoordinates, setCurrentCoordinates] = useState()
 
-    useEffect(() => {
+    const getCoordinates = async () => {
         navigator.geolocation.getCurrentPosition(position => {
-            setCoordinates({
+            setCurrentCoordinates({
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             })
         })
-    }, [])
+    }
 
-    return { coordinates }
+    return { currentCoordinates, getCoordinates }
 }
 
 export { useFetchGeolocation }

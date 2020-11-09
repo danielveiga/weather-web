@@ -33,9 +33,12 @@ const InputSearch = styled.input`
     padding: 10px;
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
 
     ${({ show }) => show && css`
+        display: block;
         opacity: 1;
+        pointer-events: all;
     `}
 `
 
