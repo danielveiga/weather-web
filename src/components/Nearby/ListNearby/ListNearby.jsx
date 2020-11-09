@@ -88,6 +88,7 @@ const ListNearby = ({ handleOnClose }) => {
                         {
                             cities.map((city, index) =>
                                 <Styled.ListNearbyItem
+                                    key={index}
                                     expanded={expandedItemIndex === index}
                                     onClick={() => handleToggleExpandedItemIndex(index)}
                                 >
@@ -104,8 +105,8 @@ const ListNearby = ({ handleOnClose }) => {
                                     </Styled.CityHeader>
                                     <Styled.CityBody>
                                         <div>
-                                            <Styled.Temp min>{<><strong>Min.</strong>{parseInt(city.main.temp_min)}°C</>}</Styled.Temp>
-                                            <Styled.Temp max>{<><strong>Max.</strong> {parseInt(city.main.temp_max)}°C</>}</Styled.Temp>
+                                            <Styled.Temp min={1}>{<><strong>Min.</strong>{parseInt(city.main.temp_min)}°C</>}</Styled.Temp>
+                                            <Styled.Temp max={1}>{<><strong>Max.</strong> {parseInt(city.main.temp_max)}°C</>}</Styled.Temp>
                                         </div>
                                         <div>
                                             <Styled.Temp>{<><strong>Feels Like</strong> {parseInt(city.main.feels_like)}°C</>}</Styled.Temp>
